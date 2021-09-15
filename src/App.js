@@ -20,9 +20,22 @@ class Navbar extends Component {
     return (
       <div>
         <h1>
-          Navbar <span>0</span>
+          Total <span>0</span>
         </h1>
         <button>Reset</button>
+      </div>
+    );
+  }
+}
+
+class Product extends Component {
+  render() {
+    return (
+      <div>
+        <button>0</button>
+        <button>+</button>
+        <button>-</button>
+        <button>Delete</button>
       </div>
     );
   }
@@ -32,7 +45,10 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Button />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
     </div>
   );
 }
