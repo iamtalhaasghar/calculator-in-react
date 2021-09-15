@@ -1,30 +1,39 @@
-import './App.css';
-import { Component } from 'react';
+import "./App.css";
+import { Component } from "react";
 
-
-function clicked(){
-  alert('THis')
-}
-
-class Button extends Component{
-  render(){
-    return <button onClick={clicked} >Button</button>
+class Button extends Component {
+  render() {
+    return (
+      <button
+        onClick={() => {
+          alert("anonymous function click");
+        }}
+      >
+        Button
+      </button>
+    );
   }
 }
 
-
-
+class Navbar extends Component {
+  render() {
+    return (
+      <div>
+        <h1>
+          Navbar <span>0</span>
+        </h1>
+        <button>Reset</button>
+      </div>
+    );
+  }
+}
 
 function App() {
   return (
     <div>
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        
+      <Navbar />
+      <Button />
     </div>
-
   );
 }
 
