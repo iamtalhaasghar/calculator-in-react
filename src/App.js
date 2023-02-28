@@ -1,54 +1,25 @@
 import "./App.css";
-import { Component } from "react";
+import Button from './Button'
+import Result from './Result'
+import Input from "./Input";
+import { useState } from "react";
 
-class Button extends Component {
-  render() {
-    return (
-      <button
-        onClick={() => {
-          alert("anonymous function click");
-        }}
-      >
-        Button
-      </button>
-    );
-  }
-}
-
-class Navbar extends Component {
-  render() {
-    return (
-      <div>
-        <h1>
-          Total <span>0</span>
-        </h1>
-        <button>Reset</button>
-      </div>
-    );
-  }
-}
-
-class Product extends Component {
-  render() {
-    return (
-      <div>
-        <button>0</button>
-        <button>+</button>
-        <button>-</button>
-        <button>Delete</button>
-      </div>
-    );
-  }
-}
 
 function App() {
+  const [result, setResult] = useState(0);
+  const [input, setInput] = useState(0);
   return (
     <div>
-      <Navbar />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      <h1>Simplest Working Calculator</h1>
+      <Result value={result}/>
+      <Input value={input} getInput={(event)=>{setInput(event.target.value)}}/>
+      <br/>
+      <Button name="add" value={input} doWork={()=>{setResult(parseInt(result) + parseInt(input))}}/>        
+      <Button name="subtract" doWork={()=>{setResult(parseInt(result) - parseInt(input))}}/>        
+      <Button name="multiply" doWork={()=>{setResult(parseInt(result) * parseInt(input))}}/>        
+      <Button name="divide" doWork={()=>{setResult(parseInt(result) / parseInt(input))}}/>        
+      <Button name="reset input" doWork={()=>{setInput(0)}}/>        
+      <Button name="reset result" doWork={()=>{setResult(0)}}/>              
     </div>
   );
 }
